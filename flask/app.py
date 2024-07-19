@@ -1,5 +1,8 @@
 from flask import Flask, make_response
+import os
 
+key = 'PORT'
+value = os.getenv(key)
 app = Flask(__name__)
 
 @app.route('/')
