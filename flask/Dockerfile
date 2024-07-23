@@ -17,7 +17,7 @@ COPY . /app
 RUN pip install flask
 
 # Adding PORT varible
-ENV PORT 5003
+ENV PORT=5003
 
 # Port 5000 is the default value for flask apps
 # Make port 5000 available to the world outside this container
@@ -31,3 +31,7 @@ CMD ["python3", "app.py"]
 # Health check (checks every 30 seconds to see if the endpoint returns a successful response)
 # HEALTHCHECK --interval=30s --timeout=3s \
 #  CMD curl -f http://localhost:5000/healthcheck || exit 1
+# Health check (checks every 30 seconds to see if theendpoint
+# returns a successful response)
+HEALTHCHECK --interval=10s --timeout=3s \
+CMD curl -f http://localhost:${PORT}/healthcheck || exit 1
