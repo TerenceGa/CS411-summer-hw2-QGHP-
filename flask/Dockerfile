@@ -17,7 +17,7 @@ COPY . /app
 RUN pip install flask
 
 # Adding PORT varible
-ENV PORT=5003
+ENV PORT=5005
 
 # Port 5000 is the default value for flask apps
 # Make port 5000 available to the world outside this container
